@@ -1,0 +1,268 @@
+**1)Creating a table students:**
+
+
+
+&nbsp;   CREATE TABLE students (
+
+&nbsp;   id SERIAL PRIMARY KEY,
+
+&nbsp;   name TEXT NOT NULL,
+
+&nbsp;   email TEXT UNIQUE NOT NULL,
+
+&nbsp;   age INTEGER NOT NULL,
+
+&nbsp;   course TEXT NOT NULL,
+
+&nbsp;   created\_at TIMESTAMP DEFAULT CURRENT\_TIMESTAMP
+
+);
+
+
+
+**Output: Success no rows returned**
+
+
+
+2)Insert at least 5 and at most 10 student records into the students table:
+
+
+
+INSERT INTO students (name, email, age, course) VALUES
+
+('Pavani', 'pavani@gmail.com', 19, 'Information Technology'),
+
+('Chandu', 'chandu@gmail.com', 23, 'Computer Science'),
+
+('Lavanya', 'lavanya@gmail.com', 20, 'Electronics'),
+
+('Sainadh', 'sainadh@gmail.com', 22, 'Mechanical'),
+
+('Sanandh', 'sanandh@gmail.com', 18, 'Information Technology'),
+
+('Jubeda', 'jubi@gmail.com', 24, 'Computer Science');
+
+
+
+**Output:Success. No rows returned**
+
+
+
+**3)1.Fetch all students:**
+
+
+
+SELECT \* FROM students;
+
+
+
+**Output:**
+
+
+
+**| id | name    | email             | age | course                 | created\_at                 |**
+
+**| -- | ------- | ----------------- | --- | ---------------------- | -------------------------- |**
+
+**| 1  | Pavani  | pavani@gmail.com  | 19  | Information Technology | 2026-01-22 13:00:04.658804 |**
+
+**| 2  | Chandu  | chandu@gmail.com  | 23  | Computer Science       | 2026-01-22 13:00:04.658804 |**
+
+**| 3  | Lavanya | lavanya@gmail.com | 20  | Electronics            | 2026-01-22 13:00:04.658804 |**
+
+**| 4  | Sainadh | sainadh@gmail.com | 22  | Mechanical             | 2026-01-22 13:00:04.658804 |**
+
+**| 5  | Sanandh | sanandh@gmail.com | 18  | Information Technology | 2026-01-22 13:00:04.658804 |**
+
+**| 6  | Jubeda  | jubi@gmail.com    | 24  | Computer Science       | 2026-01-22 13:00:04.658804 |**
+
+
+
+
+
+**2.Fetch students older than 20:**
+
+
+
+SELECT \* FROM students
+
+WHERE age > 20;
+
+
+
+**Output:**
+
+
+
+**| id | name    | email             | age | course           | created\_at                 |**
+
+**| -- | ------- | ----------------- | --- | ---------------- | -------------------------- |**
+
+**| 2  | Chandu  | chandu@gmail.com  | 23  | Computer Science | 2026-01-22 13:00:04.658804 |**
+
+**| 4  | Sainadh | sainadh@gmail.com | 22  | Mechanical       | 2026-01-22 13:00:04.658804 |**
+
+**| 6  | Jubeda  | jubi@gmail.com    | 24  | Computer Science | 2026-01-22 13:00:04.658804 |**
+
+
+
+**3.Fetch only name and email columns:**
+
+
+
+SELECT name, email FROM students;
+
+
+
+**Output:**
+
+
+
+**| name    | email             |**
+
+**| ------- | ----------------- |**
+
+**| Pavani  | pavani@gmail.com  |**
+
+**| Chandu  | chandu@gmail.com  |**
+
+**| Lavanya | lavanya@gmail.com |**
+
+**| Sainadh | sainadh@gmail.com |**
+
+**| Sanandh | sanandh@gmail.com |**
+
+**| Jubeda  | jubi@gmail.com    |**
+
+
+
+**4.Fetch students enrolled in a specific course:**
+
+
+
+SELECT \* FROM students
+
+WHERE course = 'Computer Science';
+
+
+
+**Output:**
+
+
+
+**| id | name   | email            | age | course           | created\_at                 |**
+
+**| -- | ------ | ---------------- | --- | ---------------- | -------------------------- |**
+
+**| 2  | Chandu | chandu@gmail.com | 23  | Computer Science | 2026-01-22 13:00:04.658804 |**
+
+**| 6  | Jubeda | jubi@gmail.com   | 24  | Computer Science | 2026-01-22 13:00:04.658804 |**
+
+
+
+
+
+**4)Update Data:**
+
+
+
+**1.Update the age of one student:**
+
+
+
+UPDATE students
+
+SET age = 20
+
+WHERE name = 'Pavani';
+
+
+
+**Output:Success. No rows returned.**
+
+
+
+**2.Update the course for all students enrolled in one course:**
+
+
+
+UPDATE students
+
+SET course = 'Data Science'
+
+WHERE course = 'Information Technology';
+
+
+
+**Output:Success. No rows returned.**
+
+
+
+**5)Delete Data:**
+
+
+
+**1.Delete one student using id:**
+
+
+
+DELETE FROM students
+
+WHERE id = 5;
+
+
+
+**Output:Success. No rows returned.**
+
+
+
+**2.Delete all students below a certain age:**
+
+
+
+DELETE FROM students
+
+WHERE age < 20;
+
+
+
+**Output:Success. No rows returned.**
+
+
+
+**Conclusion:**
+
+
+
+Fetch the finaldata:
+
+
+
+**select \* from students;**
+
+
+
+**Output:**
+
+
+
+**| id | name    | email             | age | course           | created\_at                 |**
+
+**| -- | ------- | ----------------- | --- | ---------------- | -------------------------- |**
+
+**| 2  | Chandu  | chandu@gmail.com  | 23  | Computer Science | 2026-01-22 13:00:04.658804 |**
+
+**| 3  | Lavanya | lavanya@gmail.com | 20  | Electronics      | 2026-01-22 13:00:04.658804 |**
+
+**| 4  | Sainadh | sainadh@gmail.com | 22  | Mechanical       | 2026-01-22 13:00:04.658804 |**
+
+**| 6  | Jubeda  | jubi@gmail.com    | 24  | Computer Science | 2026-01-22 13:00:04.658804 |**
+
+**| 1  | Pavani  | pavani@gmail.com  | 20  | Data Science     | 2026-01-22 13:00:04.658804 |**
+
+
+
+
+
+
+
